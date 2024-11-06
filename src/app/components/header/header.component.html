@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="onMenuToggleDispatch()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Edificaciones Store</span>
+
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+    <ul class="navigation-menu" fxLayout="row" fxLayoutGap="10px">
+      <li>
+        <a>{{ user ? user.nombre + " " + user.apellido : null }}</a>
+      </li>
+      <li>
+        <a routerLink="/auth/registration" *ngIf="!isAuthorized">Sign-in</a>
+      </li>
+      <li><a routerLink="/auth/login" *ngIf="!isAuthorized">Login</a></li>
+      <li><a routerLink="/" *ngIf="isAuthorized">Home</a></li>
+      <li (click)="onSignOut()">
+        <a routerLink="/" *ngIf="isAuthorized">Logout</a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>
